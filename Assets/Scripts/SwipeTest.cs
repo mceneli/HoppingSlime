@@ -27,23 +27,23 @@ public class SwipeTest : MonoBehaviour{
             if (swipeControls.SwipeLeft)
             {
                 isGrounded = false;
-                rb.AddForce(new Vector3(-7, 5, 0), ForceMode.Impulse);
+                rb.AddForce(new Vector3(-10, 5, 0), ForceMode.Impulse);
             }
 
             if (swipeControls.SwipeRight)
             {
                 isGrounded = false;
-                rb.AddForce(new Vector3(7, 5, 0), ForceMode.Impulse);
+                rb.AddForce(new Vector3(10, 5, 0), ForceMode.Impulse);
             }
             if (swipeControls.SwipeUp)
             {
                 isGrounded = false;
-                rb.AddForce(new Vector3(0, 5, 7), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, 5, 10), ForceMode.Impulse);
             }
             if (swipeControls.SwipeDown)
             {
                 isGrounded = false;
-                rb.AddForce(new Vector3(0, 5, -7), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0, 5, -10), ForceMode.Impulse);
             }
         }
     }
