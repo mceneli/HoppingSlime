@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount)
     {
         if (isDead)
             return;
@@ -62,6 +62,14 @@ public class EnemyHealth : MonoBehaviour
 
         capsuleCollider.isTrigger = true;
 
+
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        isSinking = true;
+        ScoreManager.score += scoreValue;
+        Destroy(gameObject);
+        
+
         //anim.SetTrigger("Dead");
 
         //enemyAudio.clip = deathClip;
@@ -74,7 +82,7 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
-        //ScoreManager.score += scoreValue;
-        Destroy(gameObject, 2f);
+        ScoreManager.score += scoreValue;
+        Destroy(gameObject);
     }
 }
