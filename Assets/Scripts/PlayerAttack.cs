@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(100);
             player.GetComponent<PlayerHealth>().TakeDamage(-20);
+            player.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
             //ScoreManager.score += 10;
             //Destroy(enemy);
         }
