@@ -65,6 +65,7 @@ public class EnemyAttack : MonoBehaviour
         if (playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage(attackDamage);
+            player.transform.localScale += new Vector3(-0.02F, -0.02F, -0.02F);
         }
     }
 }
