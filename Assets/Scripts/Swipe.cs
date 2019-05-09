@@ -7,6 +7,13 @@ public class Swipe : MonoBehaviour
     private bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
     private bool isDraging = false;
     private Vector2 startTouch, swipeDelta;
+    public AudioClip au_jump;
+    public AudioSource au_source;
+
+    private void Start()
+    {
+        au_source.clip = au_jump;
+    }
 
     private void Update()
     {
@@ -79,6 +86,7 @@ public class Swipe : MonoBehaviour
             }
 
             Reset();
+            au_source.Play();
         }
     }
 

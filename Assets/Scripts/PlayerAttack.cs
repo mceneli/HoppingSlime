@@ -6,6 +6,14 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject player;
+    public AudioClip au_smash;
+    public AudioSource au_source;
+
+    private void Start()
+    {
+        au_source.clip = au_smash;
+    }
+
     void Awake()
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy");
@@ -19,6 +27,8 @@ public class PlayerAttack : MonoBehaviour
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(100);
             player.GetComponent<PlayerHealth>().TakeDamage(-20);
             player.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
+
+            au_source.Play();
             //ScoreManager.score += 10;
             //Destroy(enemy);
         }

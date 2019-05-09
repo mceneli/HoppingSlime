@@ -6,6 +6,9 @@ public class EnemyAttack : MonoBehaviour
     public float timeBetweenAttacks = 0.5f;
     public int attackDamage = 10;
 
+    public AudioClip attackSound;
+    public AudioSource enemyAudio;
+
 
     //Animator anim;
     GameObject player;
@@ -14,6 +17,10 @@ public class EnemyAttack : MonoBehaviour
     bool playerInRange;
     float timer;
 
+    private void Start()
+    {
+        enemyAudio.clip = attackSound;
+    }
 
     void Awake()
     {
@@ -60,6 +67,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
+        enemyAudio.Play();
         timer = 0f;
 
         if (playerHealth.currentHealth > 0)
