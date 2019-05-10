@@ -67,11 +67,11 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
-        enemyAudio.Play();
         timer = 0f;
 
         if (playerHealth.currentHealth > 0)
         {
+            enemyAudio.Play();
             playerHealth.TakeDamage(attackDamage);
             player.transform.localScale += new Vector3(-0.02F, -0.02F, -0.02F);
         }

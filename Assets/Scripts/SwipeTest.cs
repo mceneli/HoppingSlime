@@ -9,9 +9,13 @@ public class SwipeTest : MonoBehaviour{
     Rigidbody rb;
     public bool isGrounded;
 
+    public AudioClip au_jump;
+    public AudioSource au_source;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        au_source.clip = au_jump;
     }
 
     void OnCollisionEnter(Collision col)
@@ -23,27 +27,32 @@ public class SwipeTest : MonoBehaviour{
     }
 
     private void Update(){
-        if (isGrounded){
+        if (isGrounded)
+        {
             if (swipeControls.SwipeLeft)
             {
                 isGrounded = false;
                 rb.AddForce(new Vector3(-10, 5, 0), ForceMode.Impulse);
+                au_source.Play();
             }
 
             if (swipeControls.SwipeRight)
             {
                 isGrounded = false;
                 rb.AddForce(new Vector3(10, 5, 0), ForceMode.Impulse);
+                au_source.Play();
             }
             if (swipeControls.SwipeUp)
             {
                 isGrounded = false;
                 rb.AddForce(new Vector3(0, 5, 10), ForceMode.Impulse);
+                au_source.Play();
             }
             if (swipeControls.SwipeDown)
             {
                 isGrounded = false;
                 rb.AddForce(new Vector3(0, 5, -10), ForceMode.Impulse);
+                au_source.Play();
             }
         }
     }
